@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         UserInsert userInsert = new UserInsert();
         userInsert.execute("http://10.67.172.157/EgorLubyshev/");
+        if (true){}
+
     }
 
     class UserLoader extends AsyncTask<String, Integer, Answer>{
