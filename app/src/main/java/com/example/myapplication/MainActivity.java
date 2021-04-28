@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         userInsert.execute("http://10.67.172.157/EgorLubyshev/");
         if (true){}
         else {}
+        if (true){}
+        else {}
+
 
     }
 
