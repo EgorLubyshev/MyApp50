@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
         UserLoader userLoader = new UserLoader();
         userLoader.execute("http://10.67.172.157/EgorLubyshev/");
 
-        UserInsert userInsert = new UserInsert();
-        userInsert.execute("http://10.67.172.157/EgorLubyshev/");
-
     }
 
     class UserLoader extends AsyncTask<String, Integer, Answer>{
@@ -45,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UserServers userServers = retrofit.create(UserServers.class);
-            Call<Answer> call = userServers.getUsers();
+            Call<Answer> call = userServers.getUsers("2");
 
             try {
                 Response<Answer> response = call.execute();
@@ -106,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
 
     interface UserServers{
         @GET("get_user.php")
-        Call<Answer> getUsers();
+        Call<Answer> getUsers(
+                @Query("id") String id
+        );
 
         @GET("set_user.php")
         Call<Answer> setUsers(
