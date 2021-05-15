@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UserServers userServers = retrofit.create(UserServers.class);
-            Call<Answer> call = userServers.getUsers("2");
+            Call<Answer> call = userServers.getUsers(4);
 
             try {
                 Response<Answer> response = call.execute();
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     interface UserServers{
         @GET("get_user.php")
         Call<Answer> getUsers(
-                @Query("id") String id
+                @Query("id") int id
         );
 
         @GET("set_user.php")
